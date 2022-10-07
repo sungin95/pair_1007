@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1> {{ review.title }} </h1>
-
+<p>작성 : {{ review.created_at }} | 수정 : {{ review.updated_at }}</p>
 <p> {{ review.content }} </p>
 
-<button type="submit" class="btn btn-primary" onclick="location.href='{% url 'review:update' review.pk %}'">수정</button>
-<button type="submit" class="btn btn-primary" onclick="location.href='joinUs.jsp' ">삭제</button>
-
-
-
-{% endblock %} 
+<div class="d-flex">
+  <button type="submit" class="btn btn-primary" onclick="location.href='{% url 'review:update' review.pk %}'">수정</button>
+  <form action="{% url 'review:delete' review.pk %}" method="POST" class="mx-2">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary">삭제</button>
+  </form>
+</div>
+{% endblock %}
 

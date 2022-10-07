@@ -1,0 +1,24 @@
+.logo_image{
+    height:70px;
+}
+
+.poster {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+@font-face {
+    font-family: 'EliceDigitalBaeum-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'EliceDigitalBaeum-Bd';
+}
+
+a {
+    text-decoration: none;
+    color: rgb(8, 96, 168);
+}

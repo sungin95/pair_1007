@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body>  
+     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="http://storage.enuri.info/pic_upload/knowbox_rss/202105/aHR0cDovL2ltYWdlMy5pbmV3czI0LmNvbS9pbWFnZV9qb3kvMjAyMTA1LzE2MjIxNzA3NjU1MzFfMV8xMTU5MzQuanBn" class="d-block w-100 "style="width:1920px; height:600px;" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.squarespace-cdn.com/content/v1/586ebc34d482e9c69268b69a/1591733621498-C5HAV5VOQWXQG8T2OMF8/%EB%A9%94%EC%9D%B8%EC%9D%B4%EB%AF%B8%EC%A7%80_Korean+Movie+Night+at+Home_%EB%89%B4%EC%9A%95%ED%95%9C%EA%B5%AD%EB%AC%B8%ED%99%94%EC%9B%90_2020.04.27.jpg?format=1500w" class="d-block w-100" style="width:1920px; height:600px;"alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://image.ytn.co.kr/general/jpg/2021/0825/202108250921522633_d.jpg" class="d-block w-100" style="width:1920px; height:600px;" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+      </div>
+  
+      <div class="m-5">    
+          <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {% for post_ in post %}
+              <div class="col">
+                <div class="card">
+                  <a href="./movie.html" style="text-decoration: none; color:black">
+                    <div class="card-body">
+                      <img class="poster" src="{{ post_.image }}">
+                      <h5 class="card-title">{{ post_.title }}</h5>
+                      <p>{{ post_.summary }}</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>    
+      </div>    
+        
+
+{% endblock %}
