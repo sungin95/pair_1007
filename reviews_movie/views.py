@@ -4,25 +4,24 @@ from django.shortcuts import render, redirect
 from post.forms import PostForm
 from post.models import Post
 from .forms import ReviewForm
-from . models import Review
-
+from .models import Review
 
 
 # Create your views here.
 def main(request):
-    review = Post.objects.order_by('-pk')
-    context ={
-        'post' : review,
+    review = Post.objects.order_by("-pk")
+    context = {
+        "post": review,
     }
     return render(request, "reviews/main.html", context)
 
+
 def index(request):
-    review = Review.objects.order_by('-pk')
-    context ={
-        'reviews' : review
-    }
-    
+    review = Review.objects.order_by("-pk")
+    context = {"reviews": review}
+
     return render(request, "reviews/index.html", context)
+
 
 def new(request):
     if request.method == "POST":
@@ -37,16 +36,16 @@ def new(request):
     }
     return render(request, "reviews/new.html", context)
 
-def detail(request,pk):
+
+def detail(request, pk):
     review = Review.objects.get(pk=pk)
 
-    context = {
-        'review' : review
-    }
+    context = {"review": review}
 
-    return render(request,'reviews/detail.html',context)
+    return render(request, "reviews/detail.html", context)
 
-def update(request,pk):
+
+def update(request, pk):
     review = Review.objects.get(pk=pk)
     if request.method == "POST":
         review_form = ReviewForm(request.POST)
@@ -59,7 +58,7 @@ def update(request,pk):
         "review_form": review_form,
     }
 
-    return render(request,'reviews/update.html',context)
+    return render(request, "reviews/update.html", context)
 
 
 def delete(request, pk):
@@ -74,12 +73,14 @@ def delete(request, pk):
     }
     return render(request, "reviews/new.html", context)
 
+
 def admin(request):
-    review = Post.objects.order_by('-pk')
-    context ={
-        'post' : review,
+    review = Post.objects.order_by("-pk")
+    context = {
+        "post": review,
     }
-    return render(request,'reviews/aadmin.html', context)
+    return render(request, "reviews/aadmin.html", context)
+
 
 def admin_create(request):
     if request.method == "POST":
