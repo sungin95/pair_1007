@@ -48,12 +48,12 @@ def detail(request, pk):
 def update(request, pk):
     review = Review.objects.get(pk=pk)
     if request.method == "POST":
-        review_form = ReviewForm(request.POST)
+        review_form = ReviewForm(request.POST, instance=review)
         if review_form.is_valid():
             review_form.save()
             return redirect("review:index")
-
-    review_form = ReviewForm(instance=review)
+    else:
+        review_form = ReviewForm(instance=review)
     context = {
         "review_form": review_form,
     }
